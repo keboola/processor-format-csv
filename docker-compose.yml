@@ -2,7 +2,7 @@ version: '2'
 services:
   dev:
     build: .
-    image: keboola/my-component
+    image: keboola/processor-format-csv
     volumes:
       - ./:/code
       - ./data:/data

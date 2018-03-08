@@ -1,11 +1,13 @@
 {
-    "name": "fill-me-in/fill-me-in",
+    "name": "keboola/format-csv",
     "license": "MIT",
-    "description": "fill-me-in",
+    "description": "Processor to format CSV ith different separator or enclosure",
     "type": "project",
     "require": {
         "PHP": "^7.1",
-        "keboola/php-component": "^2.0"
+        "keboola/php-component": "^2.0",
+        "keboola/csv": "^1.2",
+        "symfony/finder": "^4.0"
     },
     "require-dev": {
         "jakub-onderka/php-parallel-lint": "^1.0",
@@ -18,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MyComponent\\": "src/"
+            "Keboola\\Processor\\FormatCsv\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MyComponent\\Tests\\": "tests/phpunit/"
+            "Keboola\\Processor\\FormatCsv\\Tests\\": "tests/phpunit/"
         }
     },
     "scripts": {

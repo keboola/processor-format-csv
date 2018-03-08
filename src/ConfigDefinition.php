@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MyComponent;
+namespace Keboola\Processor\FormatCsv;
 
 use Keboola\Component\Config\BaseConfigDefinition;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
-class MyConfigDefinition extends BaseConfigDefinition
+class ConfigDefinition extends BaseConfigDefinition
 {
     protected function getParametersDefinition(): ArrayNodeDefinition
     {
