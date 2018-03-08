@@ -6,22 +6,41 @@ namespace Keboola\Processor\FormatCsv;
 
 use Keboola\Component\Config\BaseConfigDefinition;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class ConfigDefinition extends BaseConfigDefinition
 {
-    protected function getParametersDefinition(): ArrayNodeDefinition
+    public function getParametersDefinition(): ArrayNodeDefinition
     {
-        $parametersNode = parent::getParametersDefinition();
+        $treeBuilder = new TreeBuilder();
+        /** @var ArrayNodeDefinition $rootNode */
+        $rootNode = $treeBuilder->root("parameters");
         // @formatter:off
-        /** @noinspection NullPointerExceptionInspection */
-        $parametersNode
+        $rootNode
             ->children()
-                ->scalarNode('foo')
-                    ->defaultValue('baz')
+                ->scalarNode('delimiterFrom')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('enclosureFrom')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('escapedByFrom')
+                ->end()
+                ->scalarNode('delimiterTo')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('enclosureTo')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('escapedByreTo')
                 ->end()
             ->end()
         ;
         // @formatter:on
-        return $parametersNode;
+        return $rootNode;
     }
 }
