@@ -1,0 +1,8 @@
+{
+    "parameters": {
+        "delimiterFrom": ",",
+        "delimiterTo": ",",
+        "enclosureFrom": "\"",
+        "enclosureTo": "'"
+    }
+}
