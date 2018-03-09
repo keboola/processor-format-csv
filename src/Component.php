@@ -8,8 +8,8 @@ use Exception;
 use Keboola\Component\BaseComponent;
 use Keboola\Component\UserException;
 use Symfony\Component\Finder\Finder;
-use function str_replace;
 use Throwable;
+use function str_replace;
 
 class Component extends BaseComponent
 {
@@ -17,7 +17,6 @@ class Component extends BaseComponent
     {
         /** @var Config $config */
         $config = $this->getConfig();
-
 
         $tablesFinder = new Finder();
         $tablesFinder
@@ -31,7 +30,11 @@ class Component extends BaseComponent
                     throw new Exception('Table manifest must contain delimiter and enclosure.');
                 }
             } catch (Throwable $e) {
-                throw new UserException('This processor needs table manifest to work. Add a Create Manifest processor before it.', 0, $e);
+                throw new UserException(
+                    'This processor needs table manifest to work. Add a Create Manifest processor before it.',
+                    0,
+                    $e
+                );
             }
             $convertor = new Convertor(
                 $tableManifest['delimiter'],

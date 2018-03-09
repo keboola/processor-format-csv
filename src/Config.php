@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Keboola\Processor\FormatCsv;
 
 use Keboola\Component\Config\BaseConfig;
-use Keboola\Csv\CsvFile;
 
 class Config extends BaseConfig
 {
