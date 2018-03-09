@@ -1,0 +1,8 @@
+version: '2'
+services:
+  dev:
+    build: .
+    image: keboola/processor-format-csv
+    volumes:
+      - ./:/code
+      - ./data:/data
