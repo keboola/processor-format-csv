@@ -4,7 +4,7 @@
 
 Processes CSV files into exotic formats for writers. Typical use case is converting RFC4180 formated CSV from KBC into "TSV without encapulators" or "pipe separated file". 
 
-Does not support sliced tables. Does not allow to set custom escape characted (double encapsulator is used automatically). 
+Does not support sliced tables. Does not allow to set custom escape character (double encapsulator is used automatically). 
 
 # Usage
 
