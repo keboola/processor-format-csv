@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Keboola\Processor\FormatCsv;
 
 use Exception;
+use InvalidArgumentException;
 use Keboola\Component\BaseComponent;
 use Keboola\Component\UserException;
 use Symfony\Component\Finder\Finder;
@@ -26,15 +27,15 @@ class Component extends BaseComponent
         foreach ($tablesFinder as $csvTableFrom) {
             try {
                 $tableManifest = $this->getManifestManager()->getTableManifest($csvTableFrom->getFilename());
-                if (!isset($tableManifest['delimiter'], $tableManifest['enclosure'])) {
-                    throw new Exception('Table manifest must contain delimiter and enclosure.');
-                }
-            } catch (Throwable $e) {
+            } catch (InvalidArgumentException $e) {
                 throw new UserException(
                     'This processor needs table manifest to work. Add a Create Manifest processor before it.',
                     0,
                     $e
                 );
+            }
+            if (!isset($tableManifest['delimiter'], $tableManifest['enclosure'])) {
+                throw new UserException('Table manifest must contain delimiter and enclosure.');
             }
             $convertor = new Convertor(
                 $tableManifest['delimiter'],
