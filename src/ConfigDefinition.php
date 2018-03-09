@@ -24,7 +24,6 @@ class ConfigDefinition extends BaseConfigDefinition
                 ->end()
                 ->scalarNode('enclosureTo')
                     ->isRequired()
-                    ->cannotBeEmpty()
                 ->end()
             ->end()
         ;
