@@ -13,28 +13,9 @@ class Component extends BaseComponent
 {
     public function run(): void
     {
-        $filesFinder = new Finder();
-        $filesFinder
-            ->notName("*.manifest")
-            ->in($this->getDataDir() . "/in/files")
-            ->files();
         /** @var Config $config */
         $config = $this->getConfig();
 
-        $convertor = new Convertor(
-            $config->getDelimiterFrom(),
-            $config->getDelimiterTo(),
-            $config->getEnclosureFrom(),
-            $config->getEnclosureTo(),
-            $config->getEscapedByFrom(),
-            $config->getEscapedByTo()
-        );
-        foreach ($filesFinder as $csvFileFrom) {
-            $convertor->convertFile(
-                $csvFileFrom->getPathname(),
-                $this->getTargetFilename($csvFileFrom->getPathname())
-            );
-        }
 
         $tablesFinder = new Finder();
         $tablesFinder
