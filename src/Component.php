@@ -47,11 +47,15 @@ class Component extends BaseComponent
                 $csvTableFrom->getPathname(),
                 $filenameTo
             );
-            $tableManifest['delimiter'] = $config->getDelimiterTo();
-            $tableManifest['enclosure'] = $config->getEnclosureTo();
             $this->getManifestManager()->writeTableManifestFromArray(
                 $filenameTo,
-                $tableManifest
+                array_merge(
+                    $tableManifest,
+                    [
+                        'delimiter' => $config->getDelimiterTo(),
+                        'enclosure' => $config->getEnclosureTo(),
+                    ]
+                )
             );
         }
     }
