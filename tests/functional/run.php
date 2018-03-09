@@ -14,7 +14,7 @@ $finder = new Finder();
 $finder->directories()->sortByName()->in($testFolder)->depth(0);
 foreach ($finder as $testSuite) {
     print "Test " . $testSuite->getPathname() . "\n";
-    $temp = new Temp("my-component");
+    $temp = new Temp("processor-format-csv");
     $temp->initRunFolder();
 
     $copyCommand = "cp -R " . $testSuite->getPathname() . "/source/data/* " . $temp->getTmpFolder();

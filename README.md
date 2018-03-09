@@ -1,6 +1,6 @@
 # processor-format-csv
 
-[![Build Status](https://travis-ci.org/keboola/my-component.svg?branch=master)](https://travis-ci.org/keboola/my-component)
+[![Build Status](https://travis-ci.org/keboola/processor-format-csv.svg?branch=master)](https://travis-ci.org/keboola/processor-format-csv)
 
 Processes CSV files into exotic formats for writers. Typical use case is converting RFC4180 formated CSV from KBC into "TSV without encapulators" or "pipe separated file". 
 
@@ -29,7 +29,7 @@ Clone this repository and init the workspace with following command:
 
 ```
 git clone https://github.com/keboola/processor-format-csv
-cd my-component
+cd processor-format-csv
 docker-compose build
 docker-compose run --rm dev composer install --no-scripts
 ```
