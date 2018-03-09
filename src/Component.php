@@ -6,8 +6,10 @@ namespace Keboola\Processor\FormatCsv;
 
 use Exception;
 use Keboola\Component\BaseComponent;
+use Keboola\Component\UserException;
 use Symfony\Component\Finder\Finder;
 use function str_replace;
+use Throwable;
 
 class Component extends BaseComponent
 {
@@ -23,6 +25,14 @@ class Component extends BaseComponent
             ->files();
 
         foreach ($tablesFinder as $csvTableFrom) {
+            try {
+                $tableManifest = $this->getManifestManager()->getTableManifest($csvTableFrom->getFilename());
+                if (!isset($tableManifest['delimiter'], $tableManifest['enclosure'])) {
+                    throw new Exception('Table manifest must contain delimiter and enclosure.');
+                }
+            } catch (Throwable $e) {
+                throw new UserException('This processor needs table manifest to work. Add a Create Manifest processor before it.', 0, $e);
+            }
             $convertor->convertFile(
                 $csvTableFrom->getPathname(),
                 $this->getTargetFilename($csvTableFrom->getPathname())
