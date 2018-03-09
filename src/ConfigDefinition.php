@@ -36,7 +36,7 @@ class ConfigDefinition extends BaseConfigDefinition
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()
-                ->scalarNode('escapedByreTo')
+                ->scalarNode('escapedByTo')
                 ->end()
             ->end()
         ;
