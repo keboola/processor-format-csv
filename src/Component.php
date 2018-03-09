@@ -37,9 +37,7 @@ class Component extends BaseComponent
                 $tableManifest['delimiter'],
                 $config->getDelimiterTo(),
                 $tableManifest['enclosure'],
-                $config->getEnclosureTo(),
-                $config->getEscapedByFrom(),
-                $config->getEscapedByTo()
+                $config->getEnclosureTo()
             );
             $filenameTo = $this->getTargetFilename($csvTableFrom->getPathname());
             $convertor->convertFile(

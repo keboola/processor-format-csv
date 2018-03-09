@@ -1,8 +1,6 @@
 {
     "parameters": {
         "delimiterTo": ";",
-        "enclosureTo": "\"",
-        "escapedByFrom": "\\",
-        "escapedByTo": "\""
+        "enclosureTo": "\""
     }
 }

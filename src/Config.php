@@ -19,11 +19,6 @@ class Config extends BaseConfig
         return $this->getValue(['parameters', 'enclosureFrom']);
     }
 
-    public function getEscapedByFrom(): string
-    {
-        return $this->getValue(['parameters', 'escapedByFrom'], CsvFile::DEFAULT_ESCAPED_BY);
-    }
-
     public function getDelimiterTo(): string
     {
         return $this->getValue(['parameters', 'delimiterTo']);
@@ -32,10 +27,5 @@ class Config extends BaseConfig
     public function getEnclosureTo(): string
     {
         return $this->getValue(['parameters', 'enclosureTo']);
-    }
-
-    public function getEscapedByTo(): string
-    {
-        return $this->getValue(['parameters', 'escapedByTo'], CsvFile::DEFAULT_ESCAPED_BY);
     }
 }

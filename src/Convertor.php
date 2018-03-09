@@ -20,26 +20,16 @@ class Convertor
     /** @var string */
     private $enclosureTo;
 
-    /** @var string */
-    private $escapedByFrom;
-
-    /** @var string */
-    private $escapedByTo;
-
     public function __construct(
         string $delimiterFrom,
         string $delimiterTo,
         string $enclosureFrom,
-        string $enclosureTo,
-        string $escapedByFrom,
-        string $escapedByTo
+        string $enclosureTo
     ) {
         $this->delimiterFrom = $delimiterFrom;
         $this->delimiterTo = $delimiterTo;
         $this->enclosureFrom = $enclosureFrom;
         $this->enclosureTo = $enclosureTo;
-        $this->escapedByFrom = $escapedByFrom;
-        $this->escapedByTo = $escapedByTo;
     }
 
     public function convertFile(string $filenameFrom, string $filenameTo): void
@@ -47,14 +37,12 @@ class Convertor
         $csvFrom = new CsvFile(
             $filenameFrom,
             $this->delimiterFrom,
-            $this->enclosureFrom,
-            $this->escapedByFrom
+            $this->enclosureFrom
         );
         $csvTo = new CsvFile(
             $filenameTo,
             $this->delimiterTo,
-            $this->enclosureTo,
-            $this->escapedByTo
+            $this->enclosureTo
         );
 
         foreach ($csvFrom as $row) {
