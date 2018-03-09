@@ -18,14 +18,6 @@ class ConfigDefinition extends BaseConfigDefinition
         // @formatter:off
         $rootNode
             ->children()
-                ->scalarNode('delimiterFrom')
-                    ->isRequired()
-                    ->cannotBeEmpty()
-                ->end()
-                ->scalarNode('enclosureFrom')
-                    ->isRequired()
-                    ->cannotBeEmpty()
-                ->end()
                 ->scalarNode('escapedByFrom')
                 ->end()
                 ->scalarNode('delimiterTo')
