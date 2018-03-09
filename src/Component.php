@@ -27,7 +27,7 @@ class Component extends BaseComponent
         foreach ($tablesFinder as $csvTableFrom) {
             try {
                 $tableManifest = $this->getManifestManager()->getTableManifest($csvTableFrom->getFilename());
-            } catch (InvalidArgumentException $e) {
+            } catch (Throwable $e) {
                 throw new UserException(
                     'This processor needs table manifest to work. Add a Create Manifest processor before it.',
                     0,
