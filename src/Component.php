@@ -33,9 +33,24 @@ class Component extends BaseComponent
             } catch (Throwable $e) {
                 throw new UserException('This processor needs table manifest to work. Add a Create Manifest processor before it.', 0, $e);
             }
+            $convertor = new Convertor(
+                $tableManifest['delimiter'],
+                $config->getDelimiterTo(),
+                $tableManifest['enclosure'],
+                $config->getEnclosureTo(),
+                $config->getEscapedByFrom(),
+                $config->getEscapedByTo()
+            );
+            $filenameTo = $this->getTargetFilename($csvTableFrom->getPathname());
             $convertor->convertFile(
                 $csvTableFrom->getPathname(),
-                $this->getTargetFilename($csvTableFrom->getPathname())
+                $filenameTo
+            );
+            $tableManifest['delimiter'] = $config->getDelimiterTo();
+            $tableManifest['enclosure'] = $config->getEnclosureTo();
+            $this->getManifestManager()->writeTableManifestFromArray(
+                $filenameTo,
+                $tableManifest
             );
         }
     }
