@@ -24,6 +24,8 @@ Example config that converts to TSV without encapsulators:
 }
 ``` 
 
+For more information about processors, please refer to [the developers documentation](https://developers.keboola.com/extend/component/processors/). 
+
 *Note:* The input file manifest is mandatory. You may need to prepend [Create Manifest processor](https://github.com/keboola/processor-create-manifest) to your processors pipeline. 
 
 ## Development
