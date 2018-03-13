@@ -10,7 +10,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class ConfigDefinition extends BaseConfigDefinition
 {
-    public function getParametersDefinition(): ArrayNodeDefinition
+    protected function getParametersDefinition(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder();
         /** @var ArrayNodeDefinition $rootNode */
