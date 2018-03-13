@@ -14,6 +14,9 @@ Example config that converts to TSV without encapsulators:
 
 ```json
 {
+    "definition": {
+        "component": "keboola.processor-format-csv"
+    },
     "parameters": {
         "delimiterTo": "\t",
         "enclosureTo": ""
